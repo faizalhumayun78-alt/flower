@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rose Bloom</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #050505, #000);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ================= TEKS ================= */
+.text {
+  position: absolute;
+  top: 70px;
+  color: #ffccd5;
+  font-size: 32px;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: showText 2s ease forwards;
+  animation-delay: 7s;
+}
+
+@keyframes showText {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= CONTAINER ================= */
+.rose {
+  position: relative;
+  width: 300px;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* ================= BATANG ================= */
+.stem {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 0;
+  background: linear-gradient(to top, #0b3d1e, #2ecc71);
+  border-radius: 10px;
+  animation: growStem 3s ease forwards;
+}
+
+@keyframes growStem {
+  from { height: 0; }
+  to { height: 430px; }
+}
+
+/* ================= DAUN ================= */
+.leaf {
+  position: absolute;
+  width: 80px;
+  height: 40px;
+  background: #2ecc71;
+  border-radius: 50%;
+  opacity: 0;
+  animation: showLeaf 1s ease forwards;
+}
+
+.leaf.left {
+  left: -75px;
+  bottom: 230px;
+  transform: rotate(-30deg);
+  animation-delay: 2s;
+}
+
+.leaf.right {
+  right: -75px;
+  bottom: 270px;
+  transform: rotate(30deg);
+  animation-delay: 2.3s;
+}
+
+@keyframes showLeaf {
+  to { opacity: 1; }
+}
+
+/* ================= KUNCUP (MENEMPEL DI UJUNG BATANG) ================= */
+.bud {
+  position: absolute;
+  top: -90px; /* tepat di ujung batang */
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 160px;
+  height: 160px;
+  animation: showBud 1.5s ease forwards;
+  animation-delay: 3.2s;
+}
+
+@keyframes showBud {
+  to { transform: translateX(-50%) scale(1); }
+}
+
+/* ================= KEPALA MAWAR ================= */
+.rose-head {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) scale(0.3);
+  width: 160px;
+  height: 160px;
+  animation: bloom 3s ease forwards;
+  animation-delay: 1s;
+}
+
+/* ================= KELOPAK ================= */
+.petal {
+  position: absolute;
+  width: 80px;
+  height: 110px;
+  background: radial-gradient(circle at top, #ffb3c1, #b1124a);
+  border-radius: 50%;
+  transform-origin: bottom center;
+  left: 40px;
+}
+
+.inner {
+  width: 55px;
+  height: 75px;
+  background: radial-gradient(circle at top, #ffccd5, #c9184a);
+  left: 52px;
+  top: 45px;
+}
+
+.p1 { transform: rotate(0deg); }
+.p2 { transform: rotate(60deg); }
+.p3 { transform: rotate(120deg); }
+.p4 { transform: rotate(180deg); }
+.p5 { transform: rotate(240deg); }
+.p6 { transform: rotate(300deg); }
+
+@keyframes bloom {
+  from { transform: translateX(-50%) scale(0.3); }
+  to { transform: translateX(-50%) scale(1); }
+}
+
+/* ================= TENGAH ================= */
+.center {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: #ffd166;
+  border-radius: 50%;
+  top: 75px;
+  left: 75px;
+  z-index: 5;
+}
+</style>
+</head>
+
+<body>
+
+<div class="text">Happy Valentine Day ❤️</div>
+
+<div class="rose">
+
+  <div class="stem">
+    <div class="leaf left"></div>
+    <div class="leaf right"></div>
+
+    <!-- BUNGA MENEMPEL KE UJUNG BATANG -->
+    <div class="bud">
+      <div class="rose-head">
+
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="petal p5"></div>
+        <div class="petal p6"></div>
+
+        <div class="petal inner"></div>
+        <div class="petal inner" style="transform: rotate(45deg)"></div>
+        <div class="petal inner" style="transform: rotate(90deg)"></div>
+
+        <div class="center"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
